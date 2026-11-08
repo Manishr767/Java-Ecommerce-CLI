@@ -1,152 +1,84 @@
 # Java E-Commerce CLI
 
-A console-based E-Commerce application developed using Java. This project demonstrates object-oriented programming, Java Collections, repository design, file handling, shopping cart management, and basic order processing.
+A console-based e-commerce application built while practicing Java backend fundamentals. It models a simple shopping workflow: managing products, maintaining a cart, creating orders, applying a discount, and processing queued orders.
 
 ## Features
 
-- **Product Management:** Add, view, and remove products.
-- **Shopping Cart:** Add products, view cart contents, and update quantities by removing items.
-- **Order Management:** Create orders and calculate subtotals.
-- **Discount System:** Automatically applies a 10% discount when the subtotal reaches ₩100,000.
-- **Order Processing:** Processes pending orders using a FIFO queue.
-- **File Persistence:** Saves and loads product information using CSV files.
-- **Repository Pattern:** Uses repositories to manage product and order data.
+- Product listing, creation, and removal
+- Add products to a cart and update cart quantities
+- Create orders containing order items
+- Calculate order subtotals
+- Apply a 10% discount when the subtotal reaches **₩100,000**
+- Process pending orders using a FIFO queue
+- Load and save product data using CSV file handling
 
-## Technologies Used
+## Technology
 
 - Java
-- Object-Oriented Programming (OOP)
-- Java Collections Framework
-  - HashMap
-  - ArrayList / List
-  - Queue / ArrayDeque
-  - Optional
-- Java Generics
-- Java File I/O
+- Object-oriented programming and encapsulation
+- Collections: `HashMap`, `List`, `Queue`, and `ArrayDeque`
+- Generics and `Optional`
+- File I/O and CSV persistence
 - Git and GitHub
 
-## Project Structure
+## Project structure
 
 ```text
-E-commerce/
-│
-├── src/
-│   └── com/
-│       └── manish/
-│           └── ecommerce/
-│               ├── Main.java
-│               ├── Product.java
-│               ├── ProductRepository.java
-│               ├── Repository.java
-│               ├── Cart.java
-│               ├── Order.java
-│               ├── OrderItem.java
-│               ├── OrderRepository.java
-│               └── FileStore.java
-│
+.
 ├── product.csv
 ├── .gitignore
-└── README.md
+├── README.md
+└── src/com/manish/ecommerce/
+    ├── Main.java
+    ├── Product.java
+    ├── ProductRepository.java
+    ├── Repository.java
+    ├── Cart.java
+    ├── Order.java
+    ├── OrderItem.java
+    ├── OrderRepository.java
+    └── FileStore.java
 ```
 
-## Application Menu
-
-The application provides the following console operations:
-
-1. View Products
-2. Add New Product
-3. Add Product to Cart
-4. View Cart
-5. Remove Product
-6. Remove Product from Cart
-7. Checkout
-8. Process Next Order
-9. Exit
-
-## How to Run
+## Run locally
 
 ### Requirements
 
-- Java JDK 17 or later
-- IntelliJ IDEA or another Java IDE
+- JDK 17 or later (use a JDK compatible with the source code in this repository)
+- Terminal or IntelliJ IDEA
 
-### Run using Terminal
-
-Clone the repository:
+### Clone and compile
 
 ```bash
 git clone https://github.com/Manishr767/Java-Ecommerce-CLI.git
-```
-
-Navigate into the project:
-
-```bash
 cd Java-Ecommerce-CLI
-```
-
-Compile the Java source files:
-
-```bash
 javac -d out src/com/manish/ecommerce/*.java
 ```
 
-Run the application:
+### Run
 
 ```bash
 java -cp out com.manish.ecommerce.Main
 ```
 
-Alternatively, open the project in IntelliJ IDEA and run `Main.java`.
+You can also open the project in IntelliJ IDEA and run the application entry point.
 
-## Data Storage
+## Data persistence
 
-Product information is stored in `product.csv`.
+Product records are stored in `product.csv`. Product data is loaded when the application starts and saved when product data changes. Orders and the processing queue are currently held in memory, so they are not retained after the application closes.
 
-The application uses CSV file handling to load product information when it starts and save product changes.
+## Current scope and limitations
 
-Product data is stored using these fields:
+This is a learning project, not a production e-commerce platform. It does not include user accounts, online payments, a web interface, or database-backed order history.
 
-- Product ID
-- Product Name
-- Price
-- Available Stock
+## Planned improvements
 
-## Current Limitations
-
-- Product information is persisted using CSV files.
-- Order history and pending orders are stored in memory and are not preserved after the application closes.
-- The application currently uses a console-based interface.
-- No user authentication or online payment functionality is implemented.
-
-## Future Improvements
-
-- Implement database integration using MySQL or PostgreSQL.
-- Build REST APIs using Spring Boot.
-- Add user authentication and authorization.
-- Persist order history.
-- Develop a web-based frontend.
-- Add unit tests using JUnit.
-
-## Learning Objectives
-
-This project was developed as a practical exercise to strengthen my Java programming skills and understand how different components of an application work together.
-
-Key learning areas include:
-
-- Designing classes and relationships.
-- Applying encapsulation and object-oriented principles.
-- Working with collections and generics.
-- Separating application responsibilities using repositories.
-- Managing shopping carts and orders.
-- Reading and writing files.
-- Using Git and GitHub for version control.
+- Add automated tests for cart and checkout behavior
+- Improve validation and handling of invalid console input
+- Persist order history
+- Add relational database integration
+- Build REST endpoints with Spring Boot
 
 ## Author
 
-**Manish Rauniyar**
-
-GitHub: [@Manishr767](https://github.com/Manishr767)
-
----
-
-*Built as a Java learning project and a foundation for future backend development with Spring Boot.*
+**Manish Rauniyar** · [GitHub](https://github.com/Manishr767)
